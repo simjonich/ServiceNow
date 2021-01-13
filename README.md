@@ -21,7 +21,7 @@ The input file should be located here: src/main/resources/input.csv
 1. What can you say about the complexity of your code?
 The complexity is O(n*m) where n is number of words in each sentence and m is number of sentences.
 2. How will your algorithm scale?
-In this solution only vertical scale is available (by adding more CPU and memory). To support horizontal scale we must consider a shared storage where the groups will be located (Database or cached managed storage) and devide the input by multiple application instances.
+In this solution only vertical scale is available (by adding more CPU and memory). To support horizontal scale we must consider a shared storage where the groups will be located (Database or cached managed storage) and devide the input by multiple threads or application instances.
 3. If you had two weeks to do this task, what would you have done differently? What would be
 better?
   a) I'd support the horizontal scale as described above
