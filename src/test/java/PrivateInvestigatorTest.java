@@ -40,6 +40,10 @@ public class PrivateInvestigatorTest {
                     Stream.of("01-01-2012 19:45:00 a b c").collect(Collectors.toList())
                 },
                 {
+                    new ArrayList<>(),
+                    Stream.of("01-01-2012 19:45:00 a b c", "01-01-2012 19:45:00 a b").collect(Collectors.toList())
+                },
+                {
                     Stream.of(new SimilarSentencesGroup(Stream.of("01-01-2012 19:45:00 a b c", "02-01-2012 19:45:00 a b d", "03-01-2012 19:45:00 a b e").collect(Collectors.toCollection(LinkedHashSet::new)),
                     Stream.of("c", "d", "e").collect(Collectors.toSet()))).collect(Collectors.toList()),
                     Stream.of("01-01-2012 19:45:00 a b c", "02-01-2012 19:45:00 a b d", "03-01-2012 19:45:00 a b e").collect(Collectors.toList()),
