@@ -4,12 +4,13 @@ Overview of the solution:
 Investigates the sentences by prepare a map of patterns with a special character for each word.
 Assumption, % is a special character that can't be used as word (can be replaced by other special character if required).
 For example, the sentence "Naomi is getting into the car" will produce 6 patterns as following:
-  "% is getting into the car",
-  "Naomi % getting into the car",
-  "Naomi is % into the car",
-  "Naomi is getting % the car",
-  "Naomi is getting into % car",
-  "Naomi is getting into the %"
+1. "% is getting into the car",
+2. "Naomi % getting into the car",
+3. "Naomi is % into the car",
+4. "Naomi is getting % the car",
+5. "Naomi is getting into % car",
+6. "Naomi is getting into the %"
+
 For each pattern check if the pattern is already in the map and if so
 add the sentence to his group and add the changing word to the diffOfSimilarity set.
 At the end removes group with one sentence.
