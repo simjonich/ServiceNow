@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
  */
 public class PrivateInvestigator {
 
-    public static final String SPECIAL_CHARACHTER = "%";
+    public static final String SPECIAL_CHARACTER = "%";
 
     /**
      * Investigates all string patterns
@@ -70,9 +70,10 @@ public class PrivateInvestigator {
      */
     private List<String> buildPatterns(Sentence sentence) {
         List<String> patterns = new ArrayList<>();
+        String rawSentenceWithoutDateTime = sentence.getRawSentenceWithoutDateTime();
         for (String word : sentence.getWords()) {
             // Replace only the whole words
-            String pattern = sentence.getRawSentenceWithoutDateTime().replaceAll("\\b" + word + "\\b", SPECIAL_CHARACHTER);
+            String pattern = rawSentenceWithoutDateTime.replaceAll("\\b" + word + "\\b", SPECIAL_CHARACTER);
             patterns.add(pattern);
         }
 

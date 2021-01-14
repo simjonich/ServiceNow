@@ -1,5 +1,7 @@
 package Model;
 
+import com.google.common.collect.ImmutableList;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -10,28 +12,37 @@ import java.util.stream.Collectors;
  */
 public class Sentence {
     private final String rawSentence;
-    private final List<String> words;
+    private final ImmutableList<String> words;
 
     public Sentence(String sentence) throws Exception {
         rawSentence = sentence;
         String[] words = sentence.split(" ");
         if (words.length < 2) {
-            throw new Exception("Not much data in sentence " + sentence);
+            throw new Exception("The sentence is too short " + sentence);
         }
 
         // Verify that the input is in correct format
         LocalDateTime.parse(words[0] + " " + words[1], DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss"));
-        this.words = Arrays.asList(words).subList(2, words.length);
+        this.words = Arrays.asList(words).subList(2, words.length).stream().collect(ImmutableList.toImmutableList());
     }
 
+    /**
+     * @return a list of all words in sentence (without date and time)
+     */
     public List<String> getWords() {
         return words;
     }
 
+    /**
+     * @return the whole sentence (with date and time)
+     */
     public String getRawSentence() {
         return rawSentence;
     }
 
+    /**
+     * @return The sentence without date and time header
+     */
     public String getRawSentenceWithoutDateTime() {
         return String.join(" ", this.words);
     }

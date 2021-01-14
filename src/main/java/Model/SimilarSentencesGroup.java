@@ -21,9 +21,14 @@ public class SimilarSentencesGroup {
         this.diffOfSimilarity = diffOfSimilarity;
     }
 
-    public void addSentence(String sentence, String similarity) {
+    /**
+     * Adds a sentence with the diff word to the group
+     * @param sentence
+     * @param diff
+     */
+    public void addSentence(String sentence, String diff) {
         sentences.add(sentence);
-        diffOfSimilarity.add(similarity);
+        diffOfSimilarity.add(diff);
     }
 
     public Set<String> getDiffOfSimilarity() {
