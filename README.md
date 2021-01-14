@@ -24,8 +24,9 @@ The complexity is O(n*m) where n is number of words in each sentence and m is nu
 In this solution only vertical scale is available (by adding more CPU and memory). To support horizontal scale we must consider a shared storage where the groups will be located (Database or cached managed storage) and devide the input by multiple threads or application instances.
 3. If you had two weeks to do this task, what would you have done differently? What would be
 better?
-  a) I'd support the horizontal scale as described above
+  a) I'd support the horizontal scale as described above. Split the input by number of words in sentence - no need to check for similarity sentences with different number of words.
   b) Use Spring Framework for dependency injection (input and output handling and the service itself)
   c) Provide the input file as parameter to the application
-  d) Add more unit tests for edge cases
+  d) Proper error handling. The date pattern can be configurable and have a special exception. 
+  e) Add more unit tests for edge cases
   
